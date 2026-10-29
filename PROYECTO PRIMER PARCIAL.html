@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071b35">
+  <title>FÚTBOL CHALLENGE</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Fútbol Challenge, inicio">⚽ <span>FÚTBOL <b>CHALLENGE</b></span></a>
+      <div class="match-clock" aria-label="Tiempo restante">
+        <span class="clock-icon" aria-hidden="true">⏱</span>
+        <span id="timer">01:30</span>
+      </div>
+    </header>
+
+    <section class="scoreboard" aria-label="Marcador del partido">
+      <div class="team team-home"><span class="team-icon" aria-hidden="true">🔵</span><span>MI EQUIPO</span></div>
+      <div class="score" aria-live="polite"><span id="home-score">0</span><span class="score-divider">:</span><span id="away-score">0</span></div>
+      <div class="team team-away"><span>RIVAL</span><span class="team-icon" aria-hidden="true">🔴</span></div>
+    </section>
+
+    <section class="game-layout" aria-label="Juego de fútbol">
+      <div class="field-frame">
+        <canvas id="game-canvas" width="960" height="540" aria-label="Cancha de fútbol. Muévete con las flechas y dispara con la barra espaciadora.">
+          Tu navegador no puede mostrar el juego. Prueba con otro navegador actualizado.
+        </canvas>
+        <div id="goal-message" class="goal-message" aria-live="assertive">¡GOOOOL!</div>
+        <div id="confetti" class="confetti" aria-hidden="true"></div>
+
+        <div id="start-screen" class="screen-overlay">
+          <div class="overlay-card welcome-card">
+            <div class="hero-ball" aria-hidden="true">⚽</div>
+            <p class="eyebrow">¡LA CANCHA ES TUYA!</p>
+            <h1>FÚTBOL<br><span>CHALLENGE</span></h1>
+            <p class="overlay-copy">Esquiva al portero, apunta y marca tantos goles como puedas.</p>
+            <button id="play-button" class="button button-primary button-large">JUGAR <span aria-hidden="true">▶</span></button>
+            <p class="key-hint">FLECHAS PARA MOVER <span>•</span> ESPACIO PARA DISPARAR</p>
+          </div>
+        </div>
+
+        <div id="final-screen" class="screen-overlay hidden">
+          <div class="overlay-card final-card">
+            <div class="final-ball" aria-hidden="true">🏆</div>
+            <p class="eyebrow">FINAL DEL PARTIDO</p>
+            <h2 id="final-title">¡BUEN PARTIDO!</h2>
+            <p id="final-score" class="final-score">0 - 0</p>
+            <p id="final-copy" class="overlay-copy">¡Vuelve a intentarlo!</p>
+            <button id="rematch-button" class="button button-primary button-large">JUGAR DE NUEVO <span aria-hidden="true">↻</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-controls">
+        <p class="control-instructions"><span class="keycap">↑</span><span class="keycap">←</span><span class="keycap">↓</span><span class="keycap">→</span> MOVER <span class="instruction-separator">|</span> <span class="keycap keycap-space">ESPACIO</span> DISPARAR</p>
+        <div class="button-row">
+          <button id="pause-button" class="button button-secondary" disabled>Ⅱ <span>PAUSAR</span></button>
+          <button id="resume-button" class="button button-secondary" disabled>▶ <span>CONTINUAR</span></button>
+          <button id="new-game-button" class="button button-new">↻ <span>NUEVO PARTIDO</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="history-panel" aria-labelledby="history-heading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">TUS PARTIDOS</p>
+          <h2 id="history-heading">Historial de resultados</h2>
+        </div>
+        <span id="history-count" class="history-count">0 partidos</span>
+      </div>
+      <div id="goal-log" class="goal-log" aria-live="polite">
+        <span class="empty-history">¡El primer gol puede ser tuyo! ⚽</span>
+      </div>
+      <ol id="match-history" class="match-history" aria-label="Resultados de partidos anteriores"></ol>
+    </section>
+
+    <footer>TIP: ¡MUÉVETE PARA APUNTAR A UN ESPACIO LIBRE DEL ARCO!</footer>
+  </main>
+</body>
+</html>
